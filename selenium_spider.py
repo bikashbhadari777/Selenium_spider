@@ -85,7 +85,7 @@ class selenium():
             self.org_website.append(name.text)
 
     def NumberofInvestors(self):
-        self.var = self.driver.find_elements_by_css_selector('.column-id-num_investors .cb-margin-medium-horizontal')
+        self.var = self.driver.find_elements_by_css_selector('.column-id-num_investors .layout-align-start-center')
         self.no_investor = []
         for name in self.var:
             self.name_of_investor.append(name.text)
