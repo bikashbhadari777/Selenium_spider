@@ -85,16 +85,16 @@ class selenium():
             self.org_website.append(name.text)
 
     def NumberofInvestors(self):
-        self.var = self.driver.find_elements_by_css_selector('.column-id-num_investors .cb-margin-medium-horizontal')
+        self.var = self.driver.find_elements_by_css_selector('.column-id-num_investors .layout-align-start-center')
         self.no_investor = []
         for name in self.var:
-            self.name_of_investor.append(name.text)
+            self.no_investor.append(name.text)
         self.make_column()
 
 
     def Investors_Name(self):
         self.var = self.driver.find_elements_by_css_selector('.column-id-investor_identifiers .layout-align-start-center')
-        self.name_of_investor = []
+        self.name_of_investor = [] # .column-id-investor_identifiers .layout-align-start-center
         for name in self.var:
             self.name_of_investor.append(name.text)
 
@@ -127,7 +127,7 @@ class selenium():
 
     def make_column(self):
 
-        df = pd.DataFrame(list(zip(*[self.Transactions, self.organization,self.funding, self.monney, self.announc, self.pre_money,self.equaty_only_funding, self.organization_indus, self.orgaDes, self.orga_location, self.org_website,self.name_of_investor, self.name_of_investor,self.ld_investor,self.fundingStatus,self.noOffunding,self.orga_revenue,self.totalfundin])))
+        df = pd.DataFrame(list(zip(*[self.Transactions, self.organization,self.funding, self.monney, self.announc, self.pre_money,self.equaty_only_funding, self.organization_indus, self.orgaDes, self.orga_location, self.org_website,self.name_of_investor, self.no_investor ,self.ld_investor,self.fundingStatus,self.noOffunding,self.orga_revenue,self.totalfundin])))
         df.to_csv('completedProject.csv',index=False,mode= "a")
         print(df)
         self.driver.implicitly_wait(4)
